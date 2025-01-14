@@ -28,15 +28,19 @@ jobs:
       - name: Build the Project
         run: npm run build
 
-      # Step 5: Transfer Files to Server
-      - name: Deploy to Server
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          source: ./  # Specify the files to transfer
-          target: /var/www/nextjs  # Target directory on the server
+       # Archive the build directory
+      - name: Create Archive
+        run: tar -czvf build.tar.gz -C dist .
+
+    # Install sshpass for non-interactive SSH and SCP
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+
+    # Copy and extract the build on the server
+      - name: Copy and Extract Build on Server
+        run: |
+          sshpass -p "W+cY#RgeSBDkYA02%%D7" scp -o StrictHostKeyChecking=no build.tar.gz root@147.79.66.32:/var/apps/test/
+          sshpass -p "W+cY#RgeSBDkYA02%%D7" ssh -o StrictHostKeyChecking=no root@147.79.66.32 "cd /var/apps/test/ && tar -xzvf build.tar.gz && rm build.tar.gz"
 
       # Step 6: Restart Application on Server
       - name: Restart Application
