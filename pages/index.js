@@ -12,7 +12,7 @@ export default function Home() {
                 />
                 <meta
                     name="keywords"
-                    content="Rohit Goswami, software engineer, web developer, backend developer, scalable solutions, modern applications, programming, coding, software development, technology, full-stack engineer, cloud solutions, API development"
+                    content="Rohit Goswami, software engineer, software engineer in kaithal, web developer, backend developer, scalable solutions, modern applications, programming, coding, software development, technology, full-stack engineer, cloud solutions, API development"
                 />
             </Head>
             <HomePage />
