@@ -39,8 +39,8 @@ jobs:
     # Copy and extract the build on the server Test
       - name: Copy and Extract Build on Server
         run: |
-          sshpass -p "W+cY#RgeSBDkYA02%%D7" scp -o StrictHostKeyChecking=no build.tar.gz root@147.79.66.32:/var/apps/test/
-          sshpass -p "W+cY#RgeSBDkYA02%%D7" ssh -o StrictHostKeyChecking=no root@147.79.66.32 "cd /var/apps/test/ && tar -xzvf build.tar.gz && rm build.tar.gz"
+          sshpass -p "W+cY#RgeSBDkYA02%%D7" scp -o StrictHostKeyChecking=no build.tar.gz root@147.79.66.32:/var/apps/portfolio/
+          sshpass -p "W+cY#RgeSBDkYA02%%D7" ssh -o StrictHostKeyChecking=no root@147.79.66.32 "cd /var/apps/portfolio/ && tar -xzvf build.tar.gz && rm build.tar.gz"
 
       # Step 6: Restart Application on Server
       - name: Restart Application
