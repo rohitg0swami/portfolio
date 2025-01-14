@@ -60,6 +60,31 @@ const Contact = () => {
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4054073151944400"
                     crossorigin="anonymous"
                 ></script>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: `{
+                            "@context": "https://schema.org",
+                            "@type": "ContactPage",
+                            "mainEntityOfPage": "https://rohitgoswami.com/contact",
+                            "url": "https://rohitgoswami.com/contact",
+                            "name": "Contact Rohit Goswami",
+                            "description": "Reach out to Rohit Goswami for inquiries, collaborations, or any questions. Contact via email, LinkedIn, or phone.",
+                            "contactPoint": {
+                                "@type": "ContactPoint",
+                                "telephone": "+91-97299-72493",
+                                "contactType": "Customer Service",
+                                "areaServed": "Global",
+                                "availableLanguage": "English"
+                            },
+                            "sameAs": [
+                                "https://www.linkedin.com/in/rohitgoswami",
+                                "https://github.com/rohitgoswami",
+                                "mailto:rohitgoswamigi@gmail.com"
+                            ]
+                        }`,
+                    }}
+                />
             </Head>
             <NextSeo
                 title="Contact | Rohit Goswami"

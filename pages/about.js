@@ -15,6 +15,25 @@ const About = () => {
                     url: "https://rohitgoswami.com/about",
                 }}
             />
+            <Head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: `{
+                            "@context": "https://schema.org",
+                            "@type": "Person",
+                            "name": "Rohit Goswami",
+                            "jobTitle": "FullStack Developer",
+                            "description": "I am a highly motivated professional with expertise in Cloud Computing, Database Analysis & Design, and Object-Oriented Programming. I specialize in designing and implementing scalable solutions.",
+                            "url": "https://rohitgoswami.com/about",
+                            "sameAs": [
+                                "https://www.linkedin.com/in/rohitgoswami",
+                                "https://github.com/rohitgoswami"
+                            ]
+                        }`,
+                    }}
+                />
+            </Head>
             <div className="flex justify-between md:mx-20 md:pt-32 pt-28">
                 <div className="flex flex-col md:ml-20 px-10 mt-10">
                     <div className="flex flex-col md:flex-row">
