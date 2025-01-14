@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Head from "next/head";
 import Popup from "../components/ContactSubmitPopup";
+import { NextSeo } from "next-seo";
 
 emailjs.init("yKa48bbuNsDFFFVWj");
 
@@ -60,6 +61,16 @@ const Contact = () => {
                     crossorigin="anonymous"
                 ></script>
             </Head>
+            <NextSeo
+                title="Contact | Rohit Goswami"
+                description="Reach out to Rohit Goswami for inquiries, collaborations, or any questions. Contact via email, LinkedIn, or phone."
+                openGraph={{
+                    title: "Contact | Rohit Goswami",
+                    description:
+                        "Reach out to Rohit Goswami for inquiries, collaborations, or any questions. Contact via email, LinkedIn, or phone.",
+                    url: "https://rohitgoswami.com/contact",
+                }}
+            />
             <div className="h-screen max-w-screen-xl px-4 py-16 mx-auto md:pt-32 md:p-20">
                 <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
                     <div className="lg:col-span-2">

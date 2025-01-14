@@ -1,13 +1,20 @@
 import { motion } from "framer-motion";
-import Skills from "../components/Skills";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 const About = () => {
     return (
         <div className="h-screen lg:pl-20 lg:pr-32">
-            <Head>
-                <title>About | Rohit Goswami</title>
-            </Head>
+            <NextSeo
+                title="About Me | Rohit Goswami"
+                description="Learn more about Rohit Goswami, a passionate developer and creator."
+                openGraph={{
+                    title: "About Me | Rohit Goswami",
+                    description:
+                        "Learn more about Rohit Goswami, a passionate developer and creator.",
+                    url: "https://rohitgoswami.com/about",
+                }}
+            />
             <div className="flex justify-between md:mx-20 md:pt-32 pt-28">
                 <div className="flex flex-col md:ml-20 px-10 mt-10">
                     <div className="flex flex-col md:flex-row">

@@ -1,14 +1,19 @@
-import { FiGithub } from "react-icons/fi";
-// import {HiOutlineExternalLink} from 'react-icons/hi'
-import Image from "next/image";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 const projects = () => {
     return (
         <div className="h-screen mx-5 sm:mx-auto pt-32">
-            <Head>
-                <title>Projects | Rohit Goswami</title>
-            </Head>
+            <NextSeo
+                title="Projects | Rohit Goswami"
+                description="Explore the projects developed by Rohit Goswami, including Lottery Wheels App, Trust Management System, and more."
+                openGraph={{
+                    title: "Projects | Rohit Goswami",
+                    description:
+                        "Explore the projects developed by Rohit Goswami, including Lottery Wheels App, Trust Management System, and more.",
+                    url: "https://rohitgoswami.com/projects",
+                }}
+            />
+
             <h1 className="font-bold text-3xl text-center"></h1>
             <div className="max-w-5xl md:px-4 py-8 pb-32 mx-auto space-y-28">
                 <section className="p-4 md:p-8 bg-gray-100 rounded-lg shadow-2xl">
