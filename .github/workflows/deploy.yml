@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout Code
+      # Step 1: Checkout Code 
       - name: Checkout Code
         uses: actions/checkout@v3
 
@@ -36,7 +36,7 @@ jobs:
       - name: Install sshpass
         run: sudo apt-get install -y sshpass
 
-    # Copy and extract the build on the server
+    # Copy and extract the build on the server Test
       - name: Copy and Extract Build on Server
         run: |
           sshpass -p "W+cY#RgeSBDkYA02%%D7" scp -o StrictHostKeyChecking=no build.tar.gz root@147.79.66.32:/var/apps/test/
