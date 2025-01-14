@@ -23,7 +23,7 @@ const Navbar = () => {
                                     height={50}
                                     width={50}
                                     src="/images/logo.png"
-                                    alt=""
+                                    alt="Logo Image"
                                 />
                             </div>
                             <div className="hidden md:block">
@@ -87,7 +87,7 @@ const Navbar = () => {
                                                 height={40}
                                                 width={40}
                                                 src="/images/icon/github.png"
-                                                alt=""
+                                                alt="github image"
                                             />
                                         </a>
                                     </div>
@@ -196,7 +196,7 @@ const Navbar = () => {
                                                     height={40}
                                                     width={40}
                                                     src="/images/icon/github.png"
-                                                    alt=""
+                                                    alt="github image"
                                                 />
                                             </a>
                                         </div>
@@ -210,7 +210,7 @@ const Navbar = () => {
                                                     height={40}
                                                     width={40}
                                                     src="/images/icon/linkedin.png"
-                                                    alt=""
+                                                    alt="linkedin image"
                                                 />
                                             </a>
                                         </div>

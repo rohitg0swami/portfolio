@@ -54,12 +54,30 @@ const Contact = () => {
     return (
         <div className="flex items-center">
             <Head>
-                <title>Contact | Rohit Goswami</title>
                 <script
                     async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4054073151944400"
                     crossorigin="anonymous"
                 ></script>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            mainEntity: [
+                                {
+                                    "@type": "Question",
+                                    name: "How can I contact Rohit Goswami?",
+                                    acceptedAnswer: {
+                                        "@type": "Answer",
+                                        text: "You can contact me via email at rohit@example.com or through LinkedIn.",
+                                    },
+                                },
+                            ],
+                        }),
+                    }}
+                />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
