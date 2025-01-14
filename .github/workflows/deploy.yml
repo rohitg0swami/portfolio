@@ -30,7 +30,7 @@ jobs:
 
        # Archive the build directory
       - name: Create Archive
-        run: tar -czvf build.tar.gz -C dist .
+        run: tar -czvf build.tar.gz -C .next .
 
     # Install sshpass for non-interactive SSH and SCP
       - name: Install sshpass
