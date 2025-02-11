@@ -63,12 +63,12 @@ const Navbar = () => {
                                     </h1>
                                     <h1
                                         className={
-                                            router.pathname == "/blog"
+                                            router.pathname == "/contact"
                                                 ? "text-yellow-600"
                                                 : "cursor-pointer hover:text-yellow-600"
                                         }
                                     >
-                                        <Link id="blog" href="/contact">
+                                        <Link id="contact" href="/contact">
                                             <a>Contact</a>
                                         </Link>
                                     </h1>
@@ -180,6 +180,19 @@ const Navbar = () => {
                                         <Link id="projects" href="/projects">
                                             <a onClick={handleMobileNav}>
                                                 Projects
+                                            </a>
+                                        </Link>
+                                    </h1>
+                                    <h1
+                                        className={
+                                            router.pathname == "/contact"
+                                                ? "text-yellow-600"
+                                                : "cursor-pointer hover:text-yellow-600"
+                                        }
+                                    >
+                                        <Link id="contacts" href="/contact">
+                                            <a onClick={handleMobileNav}>
+                                                Contact
                                             </a>
                                         </Link>
                                     </h1>
