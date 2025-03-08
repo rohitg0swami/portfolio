@@ -12,13 +12,14 @@ const Navbar = () => {
     const handleMobileNav = () => {
         setIsOpen(!isOpen);
     };
+
     return (
         <div>
             <nav className="fixed z-20 bg-white w-full">
                 <div className="w-full">
-                    <div className="flex items-center h-20 w-full ">
+                    <div className="flex items-center h-20 w-full">
                         <div className="flex items-center sm:mx-10 md:mx-10 justify-between w-full">
-                            <div className="flex justify-center items-center flex-shrink-0 ">
+                            <div className="flex justify-center items-center flex-shrink-0">
                                 <Image
                                     height={50}
                                     width={50}
@@ -59,6 +60,20 @@ const Navbar = () => {
                                     >
                                         <Link id="projects" href="/projects">
                                             <a>Projects</a>
+                                        </Link>
+                                    </h1>
+                                    <h1
+                                        className={
+                                            router.pathname == "/certifications"
+                                                ? "text-yellow-600"
+                                                : "cursor-pointer hover:text-yellow-600"
+                                        }
+                                    >
+                                        <Link
+                                            id="certification"
+                                            href="/certifications"
+                                        >
+                                            <a>Certification</a>
                                         </Link>
                                     </h1>
                                     <h1
@@ -180,6 +195,22 @@ const Navbar = () => {
                                         <Link id="projects" href="/projects">
                                             <a onClick={handleMobileNav}>
                                                 Projects
+                                            </a>
+                                        </Link>
+                                    </h1>
+                                    <h1
+                                        className={
+                                            router.pathname == "/certifications"
+                                                ? "text-yellow-600"
+                                                : "cursor-pointer hover:text-yellow-600"
+                                        }
+                                    >
+                                        <Link
+                                            id="certification"
+                                            href="/certifications"
+                                        >
+                                            <a onClick={handleMobileNav}>
+                                                Certification
                                             </a>
                                         </Link>
                                     </h1>
