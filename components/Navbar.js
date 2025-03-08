@@ -73,7 +73,7 @@ const Navbar = () => {
                                             id="certification"
                                             href="/certifications"
                                         >
-                                            <a>Certification</a>
+                                            <a>Certifications</a>
                                         </Link>
                                     </h1>
                                     <h1
@@ -210,7 +210,7 @@ const Navbar = () => {
                                             href="/certifications"
                                         >
                                             <a onClick={handleMobileNav}>
-                                                Certification
+                                                Certifications
                                             </a>
                                         </Link>
                                     </h1>
