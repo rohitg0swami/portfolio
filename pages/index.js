@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 
 export default function Home() {
     return (
-        <div
+        <div>
             <NextSeo
                 title="Rohit Goswami - Software Engineer"
                 description="Rohit Goswami, a highly skilled software engineer specializing in web development, backend systems, and scalable solutions. Discover insights, projects, and expertise in building modern applications."
