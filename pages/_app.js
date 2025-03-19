@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }) {
             />
             <DefaultSeo {...defaultSEO} />
             <Navbar />
+
             <Component {...pageProps} />
         </div>
     );
