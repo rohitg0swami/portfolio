@@ -64,6 +64,17 @@ const Navbar = () => {
                                     </h1>
                                     <h1
                                         className={
+                                            router.pathname == "/workflows"
+                                                ? "text-yellow-600"
+                                                : "cursor-pointer hover:text-yellow-600"
+                                        }
+                                    >
+                                        <Link id="workflows" href="/workflows">
+                                            <a>Workflows</a>
+                                        </Link>
+                                    </h1>
+                                    <h1
+                                        className={
                                             router.pathname == "/certifications"
                                                 ? "text-yellow-600"
                                                 : "cursor-pointer hover:text-yellow-600"
@@ -195,6 +206,19 @@ const Navbar = () => {
                                         <Link id="projects" href="/projects">
                                             <a onClick={handleMobileNav}>
                                                 Projects
+                                            </a>
+                                        </Link>
+                                    </h1>
+                                    <h1
+                                        className={
+                                            router.pathname == "/workflows"
+                                                ? "text-yellow-600"
+                                                : "cursor-pointer hover:text-yellow-600"
+                                        }
+                                    >
+                                        <Link id="workflows" href="/workflows">
+                                            <a onClick={handleMobileNav}>
+                                                Workflows
                                             </a>
                                         </Link>
                                     </h1>
