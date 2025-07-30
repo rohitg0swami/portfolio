@@ -1,5 +1,9 @@
 module.exports = {
     output: "export",
+    images: {
+        loader: "akamai",
+        path: "/",
+    },
     reactStrictMode: false,
     env: {
         SERVICE_ID: process.env.EMAIL_JS_SERVICE_ID,
