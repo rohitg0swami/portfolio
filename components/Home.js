@@ -47,7 +47,7 @@ const Home = () => {
                         Rohit Goswami
                     </h1>
                     <h1 className="text-4xl text-yellow-600 font-extrabold md:text-6xl">
-                        Software Engineer
+                        Sr. Software Engineer
                     </h1>
                     <p className="text-sm mt-4 sm:leading-relaxed md:text-xl text-black">
                         Crafting seamless digital experiences with expert coding
