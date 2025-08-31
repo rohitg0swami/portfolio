@@ -17,7 +17,7 @@ const Error404 = () => {
                         Sorry, we couldn&#39;t find this page.
                     </p>
                     <p className="mt-4 mb-8 dark:text-gray-400">
-                        Don&#39;t worry you can find a lot more things on this
+                        Don&#39;t worry you can find a lot more things on this 
                         website!
                     </p>
                     <Link href="/">
