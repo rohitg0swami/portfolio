@@ -3,7 +3,13 @@ import Project from "../components/Project"; // Assuming this is your reusable c
 
 const Workflows = () => {
     return (
-        <div className="h-screen mx-5 sm:mx-auto pt-32">
+        <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-neutral-50 via-primary-50 to-secondary-50">
+            {/* Animated background elements */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute -top-40 -right-32 w-80 h-80 bg-gradient-to-br from-primary-400/20 to-secondary-600/20 rounded-full blur-3xl animate-pulse-slow"></div>
+                <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-gradient-to-br from-secondary-400/20 to-accent-600/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary-400/10 to-accent-600/10 rounded-full blur-3xl animate-bounce-slow"></div>
+            </div>
             <NextSeo
                 title="Workflows | Rohit Goswami"
                 description="Explore automation workflows built by Rohit Goswami using n8n, including VPS monitoring, email alerts, RAG bots, and more."
@@ -15,8 +21,9 @@ const Workflows = () => {
                 }}
             />
 
-            <h1 className="font-bold text-3xl text-center mb-10">Workflows</h1>
-            <div className="max-w-5xl md:px-4 py-8 pb-32 mx-auto space-y-28">
+            <div className="relative z-10 pt-20">
+                <h1 className="font-bold text-3xl text-center mb-10">Workflows</h1>
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-32 space-y-28">
                 {/* Check VPS Resource Usage Every 15 Minutes */}
                 <Project
                     title="VPS Resource Monitor"
@@ -66,6 +73,7 @@ const Workflows = () => {
                     description="Tracks updates on my portfolio site (https://rohitgoswami.com). It monitors page changes or downtime using HTTP requests and notifies me via Slack if something’s off. Keeps my online presence in check."
                     skills="n8n, HTTP Request, Gmail API, Cron"
                 />
+                </div>
             </div>
         </div>
     );

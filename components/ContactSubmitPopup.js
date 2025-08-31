@@ -4,7 +4,7 @@ const ContactSubmitPopup = (props) => {
     return (
         <div>
             <div
-                className="p-8 bg-white border border-blue-100 shadow-lg rounded-2xl"
+                className="p-8 bg-white border border-primary-100 shadow-lg rounded-2xl"
                 role="alert"
             >
                 <div className="items-left sm:flex">
@@ -13,13 +13,11 @@ const ContactSubmitPopup = (props) => {
                     </p>
                 </div>
 
-                <p className="mt-4 text-gray-500">{props.message}</p>
+                <p className="mt-4 text-neutral-500">{props.message}</p>
 
                 <div className="mt-6 sm:flex">
-                    <Link href="/">
-                        <a className="px-12 py-3 text-sm font-medium text-culturedWhite bg-black rounded shadow active:bg-yellow-600 hover:bg-yellow-600 focus:outline-none focus:ring">
-                            OK
-                        </a>
+                    <Link href="/" className="px-12 py-3 text-sm font-medium text-white bg-neutral-900 rounded shadow active:bg-accent-600 hover:bg-accent-600 focus:outline-none focus:ring">
+                        OK
                     </Link>
                 </div>
             </div>

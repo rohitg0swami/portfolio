@@ -1,8 +1,7 @@
 module.exports = {
     output: "export",
     images: {
-        loader: "akamai",
-        path: "/",
+        unoptimized: true,
     },
     reactStrictMode: false,
     env: {
