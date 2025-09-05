@@ -6,7 +6,7 @@ const Error404 = () => {
         <section className="flex items-center text-neutral-900">
             <Head>
                 <title>404 | Rohit Goswami</title>
-            </Head>
+            </Head> 
 
             <div className="h-screen container flex flex-col items-center justify-center px-5 mx-auto my-8">
                 <div className="max-w-md text-center">
