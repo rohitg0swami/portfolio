@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { HiChevronDown } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -10,8 +11,15 @@ import Image from "next/image";
 const NAV_ITEMS = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/workflows", label: "Workflows" },
+    {
+        href: "/projects",
+        label: "Projects",
+        hasDropdown: true,
+        dropdownItems: [
+            { href: "/projects", label: "All Projects" },
+            { href: "/workflows", label: "Workflows" },
+        ]
+    },
     { href: "/certifications", label: "Certifications" },
     { href: "/contact", label: "Contact" },
 ];
@@ -30,21 +38,6 @@ const SOCIAL_LINKS = [
 ];
 
 const SCROLL_THRESHOLD = 10;
-
-// Style constants
-const NAV_LINK_BASE_STYLES =
-    "relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded-lg group";
-const NAV_LINK_ACTIVE_STYLES = "text-primary-600 bg-primary-50";
-const NAV_LINK_INACTIVE_STYLES =
-    "text-neutral-700 hover:text-primary-600 hover:bg-primary-50/50";
-const UNDERLINE_BASE_STYLES =
-    "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary-600 transition-all duration-200 group-hover:w-full";
-const UNDERLINE_ACTIVE_STYLES = "w-full";
-const NAV_CONTAINER_BASE_STYLES =
-    "fixed top-0 left-0 right-0 z-50 transition-all duration-300";
-const NAV_CONTAINER_SCROLLED_STYLES =
-    "bg-white/80 backdrop-blur-md border-b border-neutral-200/50 shadow-soft";
-const NAV_CONTAINER_TRANSPARENT_STYLES = "bg-transparent";
 
 // Custom hooks
 const useScrollDetection = (threshold = SCROLL_THRESHOLD) => {
@@ -71,6 +64,35 @@ const useMobileMenu = () => {
     return { isOpen, toggle, close };
 };
 
+// Dropdown Menu Component
+const DropdownMenu = ({ items, isOpen, onClose }) => {
+    return (
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-neutral-200 py-2 z-50"
+                    onMouseLeave={onClose}
+                >
+                    {items.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={onClose}
+                            className="block px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-50 hover:text-primary-800 transition-colors duration-200"
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
+};
+
 // Mobile Menu Component
 const MobileMenu = ({
     isOpen,
@@ -79,6 +101,8 @@ const MobileMenu = ({
     socialLinks,
     currentPath,
 }) => {
+    const [expandedItem, setExpandedItem] = useState(null);
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -100,13 +124,13 @@ const MobileMenu = ({
                             damping: 30,
                             stiffness: 300,
                         }}
-                        className="fixed top-0 right-0 bottom-0 z-50 w-80 bg-white/95 backdrop-blur-md border-l border-neutral-200/50 shadow-2xl md:hidden"
+                        className="fixed top-0 right-0 bottom-0 z-50 w-80 bg-white border-l border-neutral-200 shadow-2xl md:hidden overflow-y-auto"
                     >
                         <div className="flex flex-col h-full">
                             {/* Mobile Header */}
-                            <div className="flex items-center justify-between p-6 border-b border-neutral-200/50">
+                            <div className="flex items-center justify-between p-6 border-b border-neutral-200">
                                 <div className="flex items-center space-x-3">
-                                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-600 p-1.5">
+                                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-800 to-primary-600 p-1.5">
                                         <Image
                                             src="/images/logo.png"
                                             alt="Logo"
@@ -137,32 +161,71 @@ const MobileMenu = ({
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.1 }}
                                         >
-                                            <Link
-                                                href={item.href}
-                                                onClick={onClose}
-                                                className={`block px-3 py-3 text-sm font-medium transition-all duration-200 rounded-lg group ${
-                                                    currentPath === item.href
-                                                        ? "text-primary-600 bg-primary-50"
-                                                        : "text-neutral-700 hover:text-primary-600 hover:bg-primary-50/50"
-                                                }`}
-                                            >
-                                                {item.label}
-                                                <span
-                                                    className={`block mt-1 h-0.5 bg-primary-600 transition-all duration-200 ${
-                                                        currentPath ===
-                                                        item.href
-                                                            ? "w-full"
-                                                            : "w-0 group-hover:w-full"
+                                            {item.hasDropdown ? (
+                                                <div>
+                                                    <button
+                                                        onClick={() => setExpandedItem(expandedItem === item.label ? null : item.label)}
+                                                        className="w-full flex items-center justify-between px-3 py-3 text-sm font-medium text-neutral-700 hover:text-primary-800 hover:bg-neutral-50 rounded-lg transition-all duration-200"
+                                                    >
+                                                        <span>{item.label}</span>
+                                                        <HiChevronDown className={`w-4 h-4 transition-transform duration-200 ${expandedItem === item.label ? 'rotate-180' : ''}`} />
+                                                    </button>
+                                                    <AnimatePresence>
+                                                        {expandedItem === item.label && (
+                                                            <motion.div
+                                                                initial={{ height: 0, opacity: 0 }}
+                                                                animate={{ height: "auto", opacity: 1 }}
+                                                                exit={{ height: 0, opacity: 0 }}
+                                                                transition={{ duration: 0.2 }}
+                                                                className="overflow-hidden"
+                                                            >
+                                                                <div className="pl-4 pt-2 space-y-2">
+                                                                    {item.dropdownItems.map((dropItem) => (
+                                                                        <Link
+                                                                            key={dropItem.href}
+                                                                            href={dropItem.href}
+                                                                            onClick={onClose}
+                                                                            className="block px-3 py-2 text-sm text-neutral-600 hover:text-primary-800 hover:bg-neutral-50 rounded-lg transition-all duration-200"
+                                                                        >
+                                                                            {dropItem.label}
+                                                                        </Link>
+                                                                    ))}
+                                                                </div>
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </div>
+                                            ) : (
+                                                <Link
+                                                    href={item.href}
+                                                    onClick={onClose}
+                                                    className={`block px-3 py-3 text-sm font-medium transition-all duration-200 rounded-lg ${
+                                                        currentPath === item.href
+                                                            ? "text-primary-800 bg-primary-50"
+                                                            : "text-neutral-700 hover:text-primary-800 hover:bg-neutral-50"
                                                     }`}
-                                                />
-                                            </Link>
+                                                >
+                                                    {item.label}
+                                                </Link>
+                                            )}
                                         </motion.div>
                                     ))}
+                                </div>
+
+                                {/* Mobile CTA Button */}
+                                <div className="mt-6">
+                                    <Link
+                                        href="/contact"
+                                        onClick={onClose}
+                                        className="block w-full px-6 py-3 text-center text-base font-semibold text-white bg-gradient-to-r from-success-600 to-success-500 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+                                    >
+                                        Get In Touch
+                                    </Link>
                                 </div>
                             </div>
 
                             {/* Mobile Social Links */}
-                            <div className="p-6 border-t border-neutral-200/50">
+                            <div className="p-6 border-t border-neutral-200">
                                 <div className="flex justify-center space-x-6">
                                     {socialLinks.map(
                                         ({ href, icon: Icon, label }) => (
@@ -171,7 +234,7 @@ const MobileMenu = ({
                                                 href={href}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="p-2 text-neutral-600 hover:text-primary-600 transition-colors duration-200 rounded-lg hover:bg-primary-50"
+                                                className="p-2 text-neutral-600 hover:text-primary-800 transition-colors duration-200 rounded-lg hover:bg-neutral-50"
                                                 aria-label={label}
                                             >
                                                 <Icon className="w-5 h-5" />
@@ -188,6 +251,45 @@ const MobileMenu = ({
     );
 };
 
+// Desktop Nav Link with Dropdown
+const NavLinkWithDropdown = ({ item, currentPath }) => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    return (
+        <div
+            className="relative"
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+        >
+            <Link
+                href={item.href}
+                className={`relative px-4 py-2 text-base font-medium transition-all duration-200 rounded-lg group flex items-center gap-1 ${
+                    currentPath === item.href || item.dropdownItems?.some(d => d.href === currentPath)
+                        ? "text-primary-800"
+                        : "text-neutral-900 hover:text-primary-800"
+                }`}
+            >
+                {item.label}
+                {item.hasDropdown && <HiChevronDown className="w-4 h-4" />}
+                <span
+                    className={`absolute bottom-0 left-0 h-0.5 bg-primary-800 transition-all duration-200 ${
+                        currentPath === item.href || item.dropdownItems?.some(d => d.href === currentPath)
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                    }`}
+                />
+            </Link>
+            {item.hasDropdown && (
+                <DropdownMenu
+                    items={item.dropdownItems}
+                    isOpen={isDropdownOpen}
+                    onClose={() => setIsDropdownOpen(false)}
+                />
+            )}
+        </div>
+    );
+};
+
 const Navbar = () => {
     const router = useRouter();
     const isScrolled = useScrollDetection();
@@ -197,37 +299,6 @@ const Navbar = () => {
         close: closeMobileMenu,
     } = useMobileMenu();
 
-    const NavLink = ({ href, children, onClick }) => (
-        <Link
-            href={href}
-            onClick={onClick}
-            className={`${NAV_LINK_BASE_STYLES} ${
-                router.pathname === href
-                    ? NAV_LINK_ACTIVE_STYLES
-                    : NAV_LINK_INACTIVE_STYLES
-            }`}
-        >
-            {children}
-            <span
-                className={`${UNDERLINE_BASE_STYLES} ${
-                    router.pathname === href ? UNDERLINE_ACTIVE_STYLES : ""
-                }`}
-            />
-        </Link>
-    );
-
-    const SocialIcon = ({ href, icon: Icon, label }) => (
-        <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 text-neutral-600 hover:text-primary-600 transition-colors duration-200 rounded-lg hover:bg-primary-50"
-            aria-label={label}
-        >
-            <Icon className="w-5 h-5" />
-        </a>
-    );
-
     return (
         <>
             {/* Main Navigation */}
@@ -235,23 +306,24 @@ const Navbar = () => {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5 }}
-                className={`${NAV_CONTAINER_BASE_STYLES} ${
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
                     isScrolled
-                        ? NAV_CONTAINER_SCROLLED_STYLES
-                        : NAV_CONTAINER_TRANSPARENT_STYLES
+                        ? "bg-white backdrop-blur-md border-b border-neutral-200 shadow-sm"
+                        : "bg-white border-b border-neutral-100"
                 }`}
+                style={{ height: "70px" }}
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+                    <div className="flex items-center justify-between h-full">
                         {/* Logo Section */}
                         <Link
                             href="/"
                             className="flex items-center space-x-2 group"
                         >
-                            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-600 p-2 group-hover:scale-105 transition-transform duration-200">
+                            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-primary-800 to-primary-600 p-2 group-hover:scale-105 transition-transform duration-200">
                                 <Image
                                     src="/images/logo.png"
-                                    alt="Rohit Goswami"
+                                    alt="Logo"
                                     width={24}
                                     height={24}
                                     className="w-full h-full object-contain"
@@ -265,22 +337,22 @@ const Navbar = () => {
                         {/* Desktop Navigation Links */}
                         <div className="hidden md:flex items-center space-x-1">
                             {NAV_ITEMS.map((item) => (
-                                <NavLink key={item.href} href={item.href}>
-                                    {item.label}
-                                </NavLink>
+                                <NavLinkWithDropdown
+                                    key={item.href}
+                                    item={item}
+                                    currentPath={router.pathname}
+                                />
                             ))}
                         </div>
 
-                        {/* Desktop Actions */}
-                        <div className="hidden md:flex items-center space-x-2">
-                            {SOCIAL_LINKS.map(({ href, icon, label }) => (
-                                <SocialIcon
-                                    key={href}
-                                    href={href}
-                                    icon={icon}
-                                    label={label}
-                                />
-                            ))}
+                        {/* Desktop CTA Button */}
+                        <div className="hidden md:flex items-center space-x-4">
+                            <Link
+                                href="/contact"
+                                className="px-6 py-2.5 text-base font-semibold text-white bg-gradient-to-r from-success-600 to-success-500 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+                            >
+                                Get In Touch
+                            </Link>
                         </div>
 
                         {/* Mobile Menu Toggle */}

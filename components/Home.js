@@ -5,12 +5,12 @@ import { HiArrowRight, HiDownload } from "react-icons/hi";
 
 const Home = () => {
     return (
-        <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-neutral-50 via-primary-50 to-secondary-50">
+        <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-neutral-50 via-primary-50/30 to-success-50/20">
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-32 w-80 h-80 bg-gradient-to-br from-primary-400/20 to-secondary-600/20 rounded-full blur-3xl animate-pulse-slow"></div>
-                <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-gradient-to-br from-secondary-400/20 to-accent-600/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary-400/10 to-accent-600/10 rounded-full blur-3xl animate-bounce-slow"></div>
+                <div className="absolute -top-40 -right-32 w-80 h-80 bg-gradient-to-br from-primary-800/10 to-primary-600/10 rounded-full blur-3xl animate-pulse-slow"></div>
+                <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-gradient-to-br from-success-600/10 to-success-400/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary-600/5 to-success-600/5 rounded-full blur-3xl animate-bounce-slow"></div>
             </div>
 
             <Head>
@@ -41,7 +41,7 @@ const Home = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="mb-6"
                     >
-                        <span className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary-600/10 to-secondary-600/10 border border-primary-200/50 text-sm font-medium text-primary-700 mb-8">
+                        <span className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary-800/10 to-success-600/10 border border-primary-200 text-sm font-medium text-primary-800 mb-8">
                             👋 Welcome to my digital space
                         </span>
                     </motion.div>

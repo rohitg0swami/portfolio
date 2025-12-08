@@ -6,7 +6,7 @@ import Script from "next/script"; // Import the Script component
 
 function MyApp({ Component, pageProps }) {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50 to-secondary-50">
+        <div className="min-h-screen bg-neutral-50">
             {/* Google Analytics Script */}
             <Script
                 strategy="afterInteractive"

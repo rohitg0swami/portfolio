@@ -74,22 +74,22 @@ const Project = ({
         }
     };
 
-    // Creative color schemes based on category
+    // Financial theme color schemes based on category
     const colorSchemes = {
         "web-app": {
-            gradient: "from-purple-500 via-pink-500 to-red-500",
-            bgGradient: "from-purple-50 via-pink-50 to-red-50",
-            darkBgGradient: "from-purple-900/20 via-pink-900/20 to-red-900/20"
+            gradient: "from-primary-800 via-primary-600 to-success-600",
+            bgGradient: "from-primary-50 via-primary-100 to-success-50",
+            darkBgGradient: "from-primary-900/20 via-primary-800/20 to-success-900/20"
         },
         "api": {
-            gradient: "from-blue-500 via-cyan-500 to-teal-500",
-            bgGradient: "from-blue-50 via-cyan-50 to-teal-50",
-            darkBgGradient: "from-blue-900/20 via-cyan-900/20 to-teal-900/20"
+            gradient: "from-primary-700 via-accent-600 to-success-500",
+            bgGradient: "from-primary-50 via-accent-50 to-success-50",
+            darkBgGradient: "from-primary-900/20 via-accent-900/20 to-success-900/20"
         },
         "mobile": {
-            gradient: "from-green-500 via-emerald-500 to-teal-500",
-            bgGradient: "from-green-50 via-emerald-50 to-teal-50",
-            darkBgGradient: "from-green-900/20 via-emerald-900/20 to-teal-900/20"
+            gradient: "from-success-600 via-success-500 to-accent-500",
+            bgGradient: "from-success-50 via-success-100 to-accent-50",
+            darkBgGradient: "from-success-900/20 via-success-800/20 to-accent-900/20"
         }
     };
 
@@ -182,7 +182,7 @@ const Project = ({
                     <header className="flex items-start justify-between mb-4">
                         <motion.h3
                             id={`project-title-${index}`}
-                            className="text-xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 dark:from-neutral-100 dark:to-neutral-300 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-pink-600 dark:group-hover:from-purple-400 dark:group-hover:to-pink-400 transition-all duration-300"
+                            className="text-xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 dark:from-neutral-100 dark:to-neutral-300 bg-clip-text text-transparent group-hover:from-primary-800 group-hover:to-success-600 dark:group-hover:from-primary-600 dark:group-hover:to-success-400 transition-all duration-300"
                             whileHover={{ scale: 1.02 }}
                         >
                             {title}
@@ -234,13 +234,13 @@ const Project = ({
                             href={link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 group/link"
+                            className="inline-flex items-center text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-primary-800 dark:hover:text-primary-600 transition-all duration-300 group/link"
                             whileHover={{ x: 5 }}
                             aria-label={`Learn more about ${title} (opens in new tab)`}
                         >
                             <span className="relative">
                                 Learn more
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 group-hover/link:w-full transition-all duration-300" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-800 to-success-600 group-hover/link:w-full transition-all duration-300" />
                             </span>
                             <HiExternalLink className="ml-1 w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                         </motion.a>
