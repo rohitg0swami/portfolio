@@ -20,6 +20,18 @@ const NAV_ITEMS = [
             { href: "/workflows", label: "Workflows" },
         ]
     },
+    {
+        href: "/blog",
+        label: "Blog",
+        hasDropdown: true,
+        dropdownItems: [
+            { href: "/blog", label: "All Posts" },
+            { href: "/blog/category/csharp", label: "C# & .NET Core" },
+            { href: "/blog/category/react", label: "React" },
+            { href: "/blog/category/javascript", label: "JavaScript" },
+            { href: "/blog/category/web-development", label: "Web Development" },
+        ]
+    },
     { href: "/certifications", label: "Certifications" },
     { href: "/contact", label: "Contact" },
 ];
@@ -137,6 +149,7 @@ const MobileMenu = ({
                                             width={20}
                                             height={20}
                                             className="w-full h-full object-contain"
+                                            priority
                                         />
                                     </div>
                                     <span className="font-semibold text-neutral-900">
@@ -327,6 +340,7 @@ const Navbar = () => {
                                     width={24}
                                     height={24}
                                     className="w-full h-full object-contain"
+                                    priority
                                 />
                             </div>
                             <span className="font-semibold text-lg text-neutral-900 hidden sm:block">
