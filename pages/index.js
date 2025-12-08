@@ -11,6 +11,7 @@ export default function Home() {
         url: "https://rohitgoswami.com",
         image: "https://rohitgoswami.com/profile.jpg",
         jobTitle: "Full Stack Developer",
+        description: "Crafting seamless digital experiences with expert coding on both sides of the spectrum.",
         worksFor: {
             "@type": "Organization",
             name: "Independent Developer"
@@ -62,13 +63,13 @@ export default function Home() {
         <div>
             <NextSeo
                 title="Rohit Goswami - Software Engineer | Kaithal, India"
-                description="Rohit Goswami, a highly skilled software engineer specializing in web development, backend systems, and scalable solutions. Discover insights, projects, and expertise in building modern applications."
+                description="Rohit Goswami is a software engineer specializing in web development, backend systems, and scalable solutions. Explore his portfolio, projects, and expertise."
                 canonical="https://rohitgoswami.com"
                 keywords="Rohit Goswami, software engineer, software engineer in Kaithal, web developer, backend developer, scalable solutions, modern applications, programming, coding, software development, technology, full-stack engineer, cloud solutions, API development"
                 openGraph={{
                     title: "Rohit Goswami - Software Engineer",
                     description:
-                        "Rohit Goswami, a highly skilled software engineer specializing in web development, backend systems, and scalable solutions. Discover insights, projects, and expertise in building modern applications.",
+                        "Rohit Goswami is a software engineer specializing in web development, backend systems, and scalable solutions. Explore his portfolio, projects, and expertise.",
                     url: "https://rohitgoswami.com",
                     type: "website",
                     images: [
@@ -87,6 +88,7 @@ export default function Home() {
                 }}
             />
             <Head>
+                <meta httpEquiv="content-language" content="en-IN" />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
