@@ -1,6 +1,7 @@
-import { NextSeo } from "next-seo";
+import { NextSeo, ArticleJsonLd, BreadcrumbJsonLd } from "next-seo";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Head from "next/head";
 import { HiArrowLeft, HiClock, HiTag, HiCalendar } from "react-icons/hi";
 import fs from "fs";
 import path from "path";
@@ -10,22 +11,83 @@ import DOMPurify from "isomorphic-dompurify";
 
 export default function BlogPost({ post, content }) {
     const sanitizedContent = DOMPurify.sanitize(content);
+    const canonicalUrl = `https://rohitgoswami.com/blog/${post.slug}`;
+    const ogImage = post.image || "https://rohitgoswami.com/og-blog.png";
+
+    const breadcrumbItems = [
+        {
+            position: 1,
+            name: "Home",
+            item: "https://rohitgoswami.com"
+        },
+        {
+            position: 2,
+            name: "Blog",
+            item: "https://rohitgoswami.com/blog"
+        },
+        {
+            position: 3,
+            name: post.categoryLabel,
+            item: `https://rohitgoswami.com/blog/category/${post.category}`
+        },
+        {
+            position: 4,
+            name: post.title,
+            item: canonicalUrl
+        }
+    ];
 
     return (
         <>
             <NextSeo
                 title={`${post.title} - Rohit Goswami`}
                 description={post.excerpt}
+                canonical={canonicalUrl}
                 openGraph={{
                     title: post.title,
                     description: post.excerpt,
+                    url: canonicalUrl,
                     type: "article",
                     article: {
                         publishedTime: post.date,
+                        authors: ["Rohit Goswami"],
                         tags: post.tags,
+                        section: post.categoryLabel
                     },
+                    images: [
+                        {
+                            url: ogImage,
+                            width: 1200,
+                            height: 630,
+                            alt: post.title
+                        }
+                    ]
+                }}
+                twitter={{
+                    handle: "@rohitgoswami",
+                    site: "@rohitgoswami",
+                    cardType: "summary_large_image"
                 }}
             />
+
+            <ArticleJsonLd
+                url={canonicalUrl}
+                title={post.title}
+                images={[ogImage]}
+                datePublished={post.date}
+                dateModified={post.date}
+                authorName="Rohit Goswami"
+                description={post.excerpt}
+            />
+
+            <BreadcrumbJsonLd
+                itemListElements={breadcrumbItems}
+            />
+
+            <Head>
+                <meta name="author" content="Rohit Goswami" />
+                <meta name="keywords" content={post.tags ? post.tags.join(", ") : ""} />
+            </Head>
 
             <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50/20 to-success-50/10 pt-24 pb-16">
                 <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

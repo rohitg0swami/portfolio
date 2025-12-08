@@ -292,6 +292,7 @@ const Projects = () => {
             <NextSeo
                 title="Creative Projects | Rohit Goswami"
                 description="Explore innovative and creative projects by Rohit Goswami. From interactive web applications to cutting-edge APIs, discover the artistry in code."
+                canonical="https://rohitgoswami.com/projects"
                 openGraph={{
                     title: "Creative Projects | Rohit Goswami",
                     description:
@@ -300,10 +301,10 @@ const Projects = () => {
                     type: "website",
                     images: [
                         {
-                            url: "/images/projects/lottery.png",
+                            url: "https://rohitgoswami.com/og-projects.png",
                             width: 1200,
                             height: 630,
-                            alt: "Creative Projects Showcase",
+                            alt: "Creative Projects Showcase by Rohit Goswami",
                         },
                     ],
                 }}

@@ -122,12 +122,20 @@ const Contact = () => {
             <NextSeo
                 title="Contact | Rohit Goswami"
                 description="Reach out to Rohit Goswami for inquiries, collaborations, or any questions. Contact via email, LinkedIn, or phone."
+                canonical="https://rohitgoswami.com/contact"
                 openGraph={{
                     title: "Contact | Rohit Goswami",
                     description:
                         "Reach out to Rohit Goswami for inquiries, collaborations, or any questions. Contact via email, LinkedIn, or phone.",
                     url: "https://rohitgoswami.com/contact",
+                    type: "website"
                 }}
+                additionalMetaTags={[
+                    {
+                        name: "keywords",
+                        content: "contact Rohit Goswami, hire developer, collaboration, freelance developer, software engineer contact"
+                    }
+                ]}
             />
             
             <main id="main-content" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-20" role="main" aria-label="Contact page">

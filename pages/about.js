@@ -66,12 +66,28 @@ const About = () => {
             <NextSeo
                 title="About Me | Rohit Goswami"
                 description="Learn more about Rohit Goswami, a passionate developer and creator."
+                canonical="https://rohitgoswami.com/about"
                 openGraph={{
                     title: "About Me | Rohit Goswami",
                     description:
                         "Learn more about Rohit Goswami, a passionate developer and creator.",
                     url: "https://rohitgoswami.com/about",
+                    type: "website",
+                    images: [
+                        {
+                            url: "https://rohitgoswami.com/og-about.png",
+                            width: 1200,
+                            height: 630,
+                            alt: "About Rohit Goswami - Full Stack Developer"
+                        }
+                    ]
                 }}
+                additionalMetaTags={[
+                    {
+                        name: "keywords",
+                        content: "Rohit Goswami, Full Stack Developer, Cloud Computing, Database Design, Software Engineer, C#, .NET Core, React, Node.js"
+                    }
+                ]}
             />
             <Head>
                 <script

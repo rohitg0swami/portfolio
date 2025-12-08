@@ -1,6 +1,44 @@
+# Robots.txt for rohitgoswami.com
+# Updated: 2025-12-08
+
+# Allow all crawlers
 User-agent: *
+Allow: /
+
+# Disallow specific paths
 Disallow: /admin/
 Disallow: /private/
-Allow: /public/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/
 
+# Allow specific important paths
+Allow: /blog/
+Allow: /projects/
+Allow: /about
+Allow: /contact
+Allow: /workflows
+Allow: /certifications
+
+# Crawl-delay (optional, adjust if needed)
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://rohitgoswami.com/sitemap.xml
+
+# Specific bot configurations
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

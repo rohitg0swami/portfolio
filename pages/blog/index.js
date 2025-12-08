@@ -31,10 +31,27 @@ export default function Blog({ posts }) {
             <NextSeo
                 title="Blog - Rohit Goswami | Tech Articles & Tutorials"
                 description="Explore articles and tutorials on C#, .NET Core, React, JavaScript, and modern web development."
+                canonical="https://rohitgoswami.com/blog"
                 openGraph={{
                     title: "Blog - Rohit Goswami",
                     description: "Tech articles and tutorials on C#, .NET Core, React, and web development",
+                    url: "https://rohitgoswami.com/blog",
+                    type: "website",
+                    images: [
+                        {
+                            url: "https://rohitgoswami.com/og-blog.png",
+                            width: 1200,
+                            height: 630,
+                            alt: "Rohit Goswami Tech Blog"
+                        }
+                    ]
                 }}
+                additionalMetaTags={[
+                    {
+                        name: "keywords",
+                        content: "C# tutorials, .NET Core guide, React tutorials, JavaScript articles, web development blog, programming tutorials"
+                    }
+                ]}
             />
 
             <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50/20 to-success-50/10 pt-24 pb-16">
