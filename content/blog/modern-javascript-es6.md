@@ -6,8 +6,6 @@ date: "2024-01-25"
 tags: ["javascript", "es6", "programming", "webdev"]
 ---
 
-# Modern JavaScript ES6+ Features You Should Know
-
 JavaScript has evolved significantly with ES6 (ES2015) and beyond. Let's explore the features that make modern JavaScript more powerful and elegant.
 
 ## Arrow Functions

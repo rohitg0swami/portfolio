@@ -1,12 +1,10 @@
 ---
-title: "Getting Started with C# and .NET Core: A Comprehensive Guide"
+title: "Getting Started with C# and .NET Core"
 excerpt: "Learn the fundamentals of C# and .NET Core development, from setting up your environment to building your first application."
 category: "csharp"
 date: "2024-01-15"
 tags: ["csharp", "dotnet", "programming", "tutorial"]
 ---
-
-# Getting Started with C# and .NET Core
 
 C# is a modern, object-oriented programming language developed by Microsoft. Combined with .NET Core, it provides a powerful platform for building cross-platform applications.
 

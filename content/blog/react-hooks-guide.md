@@ -6,8 +6,6 @@ date: "2024-01-20"
 tags: ["react", "hooks", "javascript", "frontend"]
 ---
 
-# Mastering React Hooks: A Complete Guide
-
 React Hooks revolutionized how we write React components. They allow you to use state and other React features without writing class components.
 
 ## Why React Hooks?

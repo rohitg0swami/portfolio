@@ -6,8 +6,6 @@ date: "2024-02-01"
 tags: ["css", "responsive-design", "mobile-first", "flexbox", "grid"]
 ---
 
-# Responsive Web Design: Building Mobile-First Websites
-
 In today's multi-device world, responsive web design isn't optional—it's essential. Learn how to create beautiful, functional websites that adapt seamlessly to any screen size.
 
 ## What is Responsive Web Design?
